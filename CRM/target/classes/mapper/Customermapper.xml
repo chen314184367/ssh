@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 建立类与表的映射 class 对应实体类的全限定名，其中的table 指实体类队形的数据库表名，不谢的话默认和实体类名一致 -->
+	<class name="com.zy.Model.Customer">
+		<!-- name对应实体类中的字段名称 column对应数据库中的列名。 -->
+		<!-- id 属性是独特的 它可以与表中的主键建立连接 -->
+		<id name="customerId" column="customer_id">
+			<generator class="native" />
+		</id>
+		<property name="customerStateId" column="customer_state_id" />
+		<property name="customerSourceId" column="customer_source_id" />
+		<property name="userId" column="user_id" />
+		<property name="customerCategoryId" column="customer_category_id" />
+		<property name="customerName" column="customer_name" />
+		<property name="customerIsMale" column="customer_is_male" />
+		<property name="customerMobile" column="customer_mobile" />
+		<property name="customerQq" column="customer_qq" />
+		<property name="customerAddress" column="customer_address" />
+		<property name="customerEmail" column="customer_email" />
+		<property name="customerRemark" column="customer_remark" />
+		<property name="customerPosition" column="customer_position" />
+		<property name="customerBlog" column="customer_blog" />
+		<property name="customerTel" column="customer_tel" />
+		<property name="customerBirth" column="customer_birth" />
+		<property name="customerCompany" column="customer_company" />
+		
+		<property name="status" column="status" />
+		<property name="remark" column="remark" />
+		<property name="createTime" column="create_time" />
+		<property name="creater" column="creater" />
+		<property name="updateTime" column="update_time" />
+		<property name="updater" column="updater" />
+	</class>
+
+</hibernate-mapping>
+    

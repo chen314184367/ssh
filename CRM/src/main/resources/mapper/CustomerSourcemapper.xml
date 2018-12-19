@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 建立类与表的映射 class 对应实体类的全限定名，其中的table 指实体类队形的数据库表名，不谢的话默认和实体类名一致 -->
+	<class name="com.zy.Model.CustomerSource">
+		<!-- name对应实体类中的字段名称 column对应数据库中的列名。 -->
+		<!-- id 属性是独特的 它可以与表中的主键建立连接 -->
+		<id name="customerSourceId" column="customer_source_id">
+			<generator class="native" />
+		</id>
+		<property name="customerSourceName" column="customer_source_name" />
+		<property name="customerSourceDesc" column="customer_source_desc" />
+		<property name="status" column="status" />
+		<property name="remark" column="remark" />
+		<property name="createTime" column="create_time" />
+		<property name="creater" column="creater" />
+		<property name="updateTime" column="update_time" />
+		<property name="updater" column="updater" />
+		</class>
+
+</hibernate-mapping>
+    

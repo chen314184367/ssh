@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 建立类与表的映射 class 对应实体类的全限定名，其中的table 指实体类队形的数据库表名，不谢的话默认和实体类名一致 -->
+	<class name="com.zy.Model.CustomerLink">
+		<!-- name对应实体类中的字段名称 column对应数据库中的列名。 -->
+		<!-- id 属性是独特的 它可以与表中的主键建立连接 -->
+		<id name="linkId" column="link_id">
+			<generator class="native" />
+		</id>
+		<property name="customerId" column="customer_id" />
+		<property name="linkName" column="link_name" />
+		<property name="linkIsMale" column="link_is_male" />
+		<property name="linkPosition" column="link_position" />
+		<property name="linkMobile" column="link_mobile" />
+		<property name="linkAge" column="link_age" />
+		<property name="linkRelation" column="link_relation" />
+		<property name="status" column="status" />
+		<property name="remark" column="remark" />
+		<property name="nextTime" column="next_time" />
+		
+		<property name="createTime" column="create_time" />
+		<property name="creater" column="creater" />
+		<property name="updateTime" column="update_time" />
+		<property name="updater" column="updater" />
+		</class>
+
+</hibernate-mapping>
+    

@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 建立类与表的映射 class 对应实体类的全限定名，其中的table 指实体类队形的数据库表名，不谢的话默认和实体类名一致 -->
+	<class name="com.zy.Model.Message">
+		<!-- name对应实体类中的字段名称 column对应数据库中的列名。 -->
+		<!-- id 属性是独特的 它可以与表中的主键建立连接 -->
+		<id name="messageId" column="message_id">
+			<generator class="native" />
+		</id>
+		<property name="subject" column="subject" />
+		<property name="content" column="content" />
+		<property name="sender" column="sender" />
+		<property name="sendDelete" column="send_delete" />
+		<property name="sendStatus" column="send_status" />
+		<property name="saveTime" column="save_time" />
+		<property name="sendTime" column="send_time" />
+		<property name="sendUpdateTime" column="send_update_time" />
+		<property name="receiver" column="receiver" />
+		<property name="receiveDelete" column="receive_delete" />
+		<property name="receiveStatus" column="receive_status" />
+		<property name="receiveUpdateTime" column="receive_update_time" />
+	</class>
+
+</hibernate-mapping>
+    

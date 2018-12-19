@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 代表对象由spring管理 -->
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<package name="LoginPKG" extends="struts-default">
+		<action name="Loginaction" class="com.zy.Action.UserLoginAction" >
+			<result name="success">/Home.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	
+	</package>
+	
+	<!-- UserPKG -->
+	<package name="UserPKG" extends="struts-default" >
+	<!-- 自定义拦截器 -->
+	<interceptors>
+	<interceptor name="loginiov" class="com.zy.Model.PrivilegeInterceptor" >
+	<param name="n"></param>
+	</interceptor>
+	
+	<interceptor-stack name="myStach">
+	<interceptor-ref name="loginiov"></interceptor-ref>
+	<interceptor-ref name="defaultStack"></interceptor-ref>
+	</interceptor-stack>
+	</interceptors>
+	<default-interceptor-ref name="myStach"></default-interceptor-ref>
+	<!-- 全局物理视图 -->
+	<global-results>
+	 <result name="home">/Home.jsp</result>
+	  <result name="login">/login.jsp</result>
+	</global-results>
+	
+	
+	<action name="expect" class="com.zy.Action.userAction" method="espect">
+			<result name="success" type="redirect">/login.jsp</result>
+			<result name="input">/Home.jsp</result>
+		</action> 
+	
+		<action name="*View" class="com.zy.Action.{1}Action" method="{1}View">
+			<result name="success" >/{1}View.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="*Add" class="com.zy.Action.{1}Action" method="{1}Add">
+			<result name="success" type="redirect">/{1}View.action</result>
+			<result name="input">/{1}Add.jsp</result>
+		</action>
+		<action name="*UpdateReady" class="com.zy.Action.{1}Action" method="{1}UpdateReady">
+			<result name="success" >/{1}Update.jsp</result>
+			<result name="input">/{1}Add.jsp</result>
+		</action>
+		<action name="*Update" class="com.zy.Action.{1}Action" method="{1}Update">
+			<result name="success" type="redirect">/{1}View.action</result>
+			<result name="input">/{1}Add.jsp</result>
+		</action>
+		<action name="*Delete" class="com.zy.Action.{1}Action" method="{1}Delete">
+			<result name="success" type="redirect">/{1}View.action</result>
+			<result name="input">/{1}Add.jsp</result>
+		</action>
+		<action name="*Search" class="com.zy.Action.{1}Action" method="{1}Search">
+				<result name="success" >/{1}View.jsp</result>
+			<result name="input">/{1}Add.jsp</result>
+		</action>
+	</package>
+	
+
+	
+	
+ <constant name="struts.action.excludePattern" value="/static/.*?"></constant>
+
+
+</struts>
